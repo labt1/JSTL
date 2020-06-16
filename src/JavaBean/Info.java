@@ -4,6 +4,9 @@ public class Info {
 	String nombre;
 	String apellido;
 	
+	public Info() {  
+	}
+	
 	public String get_nombre() {
 		return nombre;
 	}

@@ -30,22 +30,18 @@ public class Servlet extends HttpServlet {
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
-		response.getWriter().append("Served at: ").append(request.getContextPath());
-		
+		doPost(request, response);
 	}
 
 	/**
 	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		System.out.println(request.getParameter("nombre"));
+		Info info=new Info();
+		info.set_nombre(request.getParameter("nombre"));
+		info.set_apellido(request.getParameter("apellido"));
 		
-		Info i=new Info();
-		i.set_nombre(request.getParameter("nombre"));
-		i.set_apellido(request.getParameter("apellido"));
-		
-		request.setAttribute("nombre",i.get_nombre());
-		request.setAttribute("apellido",i.get_apellido());
+		request.setAttribute("info",info);
 		RequestDispatcher rd = request.getRequestDispatcher("/jsp/presentacion.jsp");
 		rd.forward(request, response);
 		

@@ -9,9 +9,11 @@
 <html>
 <head>
 <meta charset="ISO-8859-1">
-<title>Presentación</title>
+<title></title>
 </head>
 <body>
-Hola ${nombre} ${apellido}
+	<jsp:useBean id="info" class="JavaBean.Info" scope="session" />
+	<c:out value="${info.get_nombre()}"></c:out>
+	<c:out value="${info.get_apellido()}"></c:out>
 </body>
 </html>
